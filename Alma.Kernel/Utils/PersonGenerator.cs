@@ -1,5 +1,4 @@
-using System;
-using Alma.Kernel.Model;
+using Alma.Kernel.Model.People;
 
 namespace Alma.Kernel.Utils;
 

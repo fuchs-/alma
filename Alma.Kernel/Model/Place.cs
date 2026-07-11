@@ -1,3 +1,5 @@
+using Alma.Kernel.Model.People;
+
 namespace Alma.Kernel.Model;
 
 internal class Place

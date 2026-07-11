@@ -1,4 +1,5 @@
 using Alma.Kernel.Model;
+using Alma.Kernel.Model.People;
 using Alma.Kernel.Utils;
 
 namespace Alma.Kernel.Meta;
@@ -19,10 +20,10 @@ internal class Simulation
 
         _time.AddEntity(person);
 
-        while (person.SocializingNeed < 100)
+        while (person.Needs.Socialize.Value < 100)
         {
             _time.Tick();
-            Console.WriteLine($"{person} socializing need: {person.SocializingNeed}%");
+            Console.WriteLine($"{person} socializing need: {person.Needs.Socialize.Value}%");
             Thread.Sleep(1000);
         }
     }

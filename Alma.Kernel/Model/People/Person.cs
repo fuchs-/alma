@@ -1,25 +1,27 @@
 using Alma.Kernel.Meta;
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.Model;
+namespace Alma.Kernel.Model.People;
 
 internal class Person : ITemporalEntity
 {
+    #region Characteristics
+
     public required PersonIdentity Identity { get; init; }
+
+    #endregion
+
+    #region State
+
+    public Needs Needs { get; } = new Needs();
+
     public Place? Location { get; private set; }
-
-    private int _SocializingNeed { get; set; } = 50;
-
-    public int SocializingNeed
-    {
-        get => _SocializingNeed;
-        private set => _SocializingNeed = Math.Min(Math.Max(value, 0), 100);
-    }
-
     public void _SetLocation(Place place)
     {
         Location = place;
     }
+
+    #endregion
 
     public override string ToString()
     {
@@ -28,6 +30,6 @@ internal class Person : ITemporalEntity
 
     public void Tick(RNG rng)
     {
-        SocializingNeed += rng.Generate(5);
+        Needs.Socialize.Increase(rng.Generate(8));
     }
 }
