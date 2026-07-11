@@ -1,6 +1,6 @@
 namespace Alma.Kernel.Model;
 
-internal class World
+internal class Space
 {
     private readonly List<Place> _places = new();
     private readonly List<Person> _people = new();

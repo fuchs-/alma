@@ -1,2 +1,3 @@
-﻿
-Console.WriteLine("Hello, World!");
+﻿using Alma.Kernel.Meta;
+
+(new Simulation()).Start();
