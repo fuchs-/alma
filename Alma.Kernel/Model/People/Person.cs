@@ -5,7 +5,7 @@ namespace Alma.Kernel.Model.People;
 
 internal class Person : ITemporalEntity
 {
-    #region Characteristics
+    #region Profile
 
     public required PersonIdentity Identity { get; init; }
 
