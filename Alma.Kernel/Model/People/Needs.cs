@@ -1,31 +1,18 @@
+using System.Collections;
+using Alma.Kernel.Utils;
+
 namespace Alma.Kernel.Model.People;
 
-internal class Needs
+internal class Needs : IEnumerable<Need>
 {
-    public Need Socialize { get; } = new Need(50);
-}
+    public Need Tension { get; } = new Need();
 
-internal class Need(int value = 0)
-{
-    private int _value = value;
-    public int Value
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    public IEnumerator<Need> GetEnumerator() { yield return Tension; }
+
+    public void Tick(RNG rng)
     {
-        get => _value;
-    }
-
-    public void Increase(int amount)
-    {
-        _value += amount;
-
-        if (_value > 100)
-            _value = 100;
-    }
-
-    public void Decrease(int amount)
-    {
-        _value -= amount;
-
-        if (_value < 0)
-            _value = 0;
+        foreach (var need in this)
+            need.Increase(rng.Generate());
     }
 }

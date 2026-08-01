@@ -20,10 +20,12 @@ internal class Simulation
 
         _time.AddEntity(person);
 
-        while (person.Needs.Socialize.Value < 100)
+        while (person.Needs.Tension.CurrentValue < 100)
         {
             _time.Tick();
-            Console.WriteLine($"{person} socializing need: {person.Needs.Socialize.Value}%");
+
+            Console.WriteLine($"{person}\ntension: {person.Needs.Tension.CurrentValue}%\n");
+
             Thread.Sleep(1000);
         }
     }

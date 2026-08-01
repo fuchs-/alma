@@ -30,6 +30,17 @@ internal class Person : ITemporalEntity
 
     public void Tick(RNG rng)
     {
-        Needs.Socialize.Increase(rng.Generate(8));
+        Needs.Tick(rng);
+        Decide(rng);
+    }
+
+    private void Decide(RNG rng)
+    {
+        var need = Needs.FirstOrDefault(n => n.IsUrgent);
+        if (need is null) return;
+
+        need.Satisfy();
+
+        Console.WriteLine($"{this} decided to satisfy her need");
     }
 }
