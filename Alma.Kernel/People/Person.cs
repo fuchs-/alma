@@ -1,4 +1,5 @@
 using Alma.Kernel.Activities;
+using Alma.Kernel.Items;
 using Alma.Kernel.Meta;
 using Alma.Kernel.Utils;
 using Alma.Kernel.World;
@@ -24,6 +25,8 @@ internal class Person : ITemporalEntity
         Location = place;
     }
 
+    public List<Item> Pockets { get; } = [new Item("Bloom")];
+
     #endregion
 
     public void Tick(RNG rng)
@@ -48,9 +51,16 @@ internal class Person : ITemporalEntity
         var need = Needs.FirstOrDefault(n => n.IsUrgent);
         if (need is null) return;
 
-        CurrentActivity = new RelaxActivity(this);
+        var act = new RelaxActivity(this);
 
-        Console.WriteLine($"{this} decided to satisfy her need!");
+        if (!act.CanStart()) return;
+
+        CurrentActivity = act;
+
+        if (CurrentActivity.Start(rng))
+            Console.WriteLine($"{this} decided to satisfy her need!");
+        else
+            CurrentActivity = null;
     }
 
     public override string ToString()

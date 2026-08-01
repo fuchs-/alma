@@ -5,7 +5,7 @@ namespace Alma.Kernel.People;
 
 internal class Needs : IEnumerable<Need>
 {
-    public Need Tension { get; } = new Need();
+    public Need Tension { get; } = new Need(50);
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     public IEnumerator<Need> GetEnumerator() { yield return Tension; }

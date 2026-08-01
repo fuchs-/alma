@@ -15,6 +15,10 @@ internal class Activity(
     public int TicksLeft { get; private set; } = duration;
     public bool Finished => TicksLeft <= 0;
 
+    public virtual bool CanStart() => true;
+
+    public virtual bool Start(RNG rng) => true;
+
     public virtual bool Tick(RNG rng)
     {
         var ret = !Finished;
