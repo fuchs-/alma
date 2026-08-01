@@ -1,5 +1,5 @@
-using Alma.Kernel.Model;
-using Alma.Kernel.Model.People;
+using Alma.Kernel.People;
+using Alma.Kernel.World;
 
 namespace Alma.Kernel.Meta;
 

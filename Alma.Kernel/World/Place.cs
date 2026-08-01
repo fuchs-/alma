@@ -1,6 +1,6 @@
-using Alma.Kernel.Model.People;
+using Alma.Kernel.People;
 
-namespace Alma.Kernel.Model;
+namespace Alma.Kernel.World;
 
 internal class Place
 {

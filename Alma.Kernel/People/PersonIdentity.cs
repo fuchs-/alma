@@ -1,4 +1,4 @@
-namespace Alma.Kernel.Model.People;
+namespace Alma.Kernel.People;
 
 public class PersonIdentity(string firstName, string lastName, int age)
 {

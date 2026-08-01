@@ -1,7 +1,7 @@
-using Alma.Kernel.Model.People;
+using Alma.Kernel.People;
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.Model.Activities;
+namespace Alma.Kernel.Activities;
 
 internal class Activity(
     Person performer,

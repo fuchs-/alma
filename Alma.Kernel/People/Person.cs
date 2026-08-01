@@ -1,8 +1,9 @@
+using Alma.Kernel.Activities;
 using Alma.Kernel.Meta;
-using Alma.Kernel.Model.Activities;
 using Alma.Kernel.Utils;
+using Alma.Kernel.World;
 
-namespace Alma.Kernel.Model.People;
+namespace Alma.Kernel.People;
 
 internal class Person : ITemporalEntity
 {
