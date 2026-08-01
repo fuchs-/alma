@@ -1,3 +1,5 @@
+using Alma.Kernel.Utils;
+
 namespace Alma.Kernel.Model.People;
 
 internal class Need(int initialValue = 0, int threshold = 85)
@@ -23,5 +25,5 @@ internal class Need(int initialValue = 0, int threshold = 85)
             CurrentValue = 0;
     }
 
-    public void Satisfy() => CurrentValue = 0;
+    public void Satisfy(RNG rng) => Decrease(rng.Generate(10, 25));
 }

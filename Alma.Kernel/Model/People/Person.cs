@@ -1,4 +1,5 @@
 using Alma.Kernel.Meta;
+using Alma.Kernel.Model.Activities;
 using Alma.Kernel.Utils;
 
 namespace Alma.Kernel.Model.People;
@@ -14,6 +15,7 @@ internal class Person : ITemporalEntity
     #region State
 
     public Needs Needs { get; } = new Needs();
+    public Activity? CurrentActivity { get; private set; }
 
     public Place? Location { get; private set; }
     public void _SetLocation(Place place)
@@ -23,15 +25,21 @@ internal class Person : ITemporalEntity
 
     #endregion
 
-    public override string ToString()
-    {
-        return Identity.Name;
-    }
-
     public void Tick(RNG rng)
     {
         Needs.Tick(rng);
-        Decide(rng);
+
+        if (CurrentActivity is null)
+        {
+            Decide(rng);
+            return;
+        }
+
+        CurrentActivity.Tick(rng);
+        if (CurrentActivity.Finished)
+            CurrentActivity = null;
+
+        Console.WriteLine($"{this} is {CurrentActivity?.Name ?? "Doing nothing"}");
     }
 
     private void Decide(RNG rng)
@@ -39,8 +47,13 @@ internal class Person : ITemporalEntity
         var need = Needs.FirstOrDefault(n => n.IsUrgent);
         if (need is null) return;
 
-        need.Satisfy();
+        CurrentActivity = new RelaxActivity(this);
 
-        Console.WriteLine($"{this} decided to satisfy her need");
+        Console.WriteLine($"{this} decided to satisfy her need!");
+    }
+
+    public override string ToString()
+    {
+        return Identity.Name;
     }
 }

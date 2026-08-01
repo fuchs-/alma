@@ -13,6 +13,6 @@ internal class Needs : IEnumerable<Need>
     public void Tick(RNG rng)
     {
         foreach (var need in this)
-            need.Increase(rng.Generate());
+            need.Increase(rng.Generate(10));
     }
 }

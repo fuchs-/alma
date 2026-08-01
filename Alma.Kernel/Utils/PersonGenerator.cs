@@ -17,7 +17,7 @@ internal class PersonGenerator
         Identity = new PersonIdentity(
             _rng.ChooseFrom(_firstNames),
             _rng.ChooseFrom(_lastNames),
-            _rng.Generate(MaximumAge + 1, MinimumAge)
+            _rng.Generate(MinimumAge, MaximumAge + 1)
             ),
     };
 }
