@@ -19,9 +19,11 @@ internal class Simulation
 
         _time.AddEntity(person);
 
-        while (person.Needs.Tension.CurrentValue < 100)
+        var ticks = 0;
+        while (ticks < 150)
         {
             _time.Tick();
+            ticks++;
 
             Console.WriteLine($"{person}\ntension: {person.Needs.Tension.CurrentValue}%\n");
 

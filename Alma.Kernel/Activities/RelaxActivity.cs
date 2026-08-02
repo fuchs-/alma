@@ -9,15 +9,15 @@ internal class RelaxActivity(Person performer)
     public override bool CanStart()
     {
         return base.CanStart()
-            && _performer.Pockets.Any(i => i.Name == "Bloom");
+            && _actor.Pockets.Any(i => i.Name == "Bloom");
     }
 
     public override bool Start(RNG rng)
     {
         if (!base.Start(rng)) return false;
 
-        return _performer.Pockets.Remove(
-            _performer
+        return _actor.Pockets.Remove(
+            _actor
                 .Pockets
                 .First(i => i.Name == "Bloom")
             );
@@ -27,7 +27,7 @@ internal class RelaxActivity(Person performer)
     {
         if (base.Tick(rng))
         {
-            _performer.Needs.Tension.Satisfy(rng);
+            _actor.Needs.Tension.Satisfy(rng);
             return true;
         }
 

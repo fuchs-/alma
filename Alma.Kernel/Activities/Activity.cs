@@ -4,12 +4,12 @@ using Alma.Kernel.Utils;
 namespace Alma.Kernel.Activities;
 
 internal class Activity(
-    Person performer,
+    Person actor,
     string name,
     int duration
     )
 {
-    protected Person _performer = performer;
+    protected Person _actor = actor;
     public string Name { get; } = name;
     public int Duration { get; } = duration;
     public int TicksLeft { get; private set; } = duration;
@@ -21,10 +21,10 @@ internal class Activity(
 
     public virtual bool Tick(RNG rng)
     {
-        var ret = !Finished;
+        if (Finished)
+            return false;
 
-        if (ret) TicksLeft--;
-
-        return ret;
+        TicksLeft--;
+        return true;
     }
 }

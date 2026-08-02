@@ -51,16 +51,19 @@ internal class Person : ITemporalEntity
         var need = Needs.FirstOrDefault(n => n.IsUrgent);
         if (need is null) return;
 
-        var act = new RelaxActivity(this);
-
-        if (!act.CanStart()) return;
-
-        CurrentActivity = act;
-
-        if (CurrentActivity.Start(rng))
-            Console.WriteLine($"{this} decided to satisfy her need!");
+        if (Pockets.Any(i => i.Name == "Bloom"))
+        {
+            CurrentActivity = new RelaxActivity(this);
+        }
         else
+        {
+            CurrentActivity = new LookForItemActivity(this, "Bloom");
+        }
+
+        if (!CurrentActivity.CanStart())
             CurrentActivity = null;
+
+        CurrentActivity?.Start(rng);
     }
 
     public override string ToString()
