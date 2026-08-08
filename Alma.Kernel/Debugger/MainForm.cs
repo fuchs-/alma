@@ -1,4 +1,4 @@
-namespace Alma.Kernel;
+namespace Alma.Kernel.Debugger;
 
 public partial class MainForm : Form
 {

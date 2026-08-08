@@ -1,3 +1,4 @@
+using System.Threading;
 using Alma.Kernel.People;
 using Alma.Kernel.Utils;
 
@@ -12,7 +13,19 @@ internal class Simulation
 
     private readonly List<Person> _people = new();
 
+    private Thread? _thread;
+    private CancellationTokenSource? _cancellationTokenSource;
+
     public void Start()
+    {
+        _cancellationTokenSource = new();
+        _thread = new Thread(() => Run(_cancellationTokenSource.Token));
+        _thread.Start();
+    }
+
+    public void Stop() => _cancellationTokenSource?.Cancel();
+
+    public void Run(CancellationToken cancelationToken)
     {
         var generator = new PersonGenerator();
         var person = generator.GeneratePerson();
@@ -20,7 +33,8 @@ internal class Simulation
         _time.AddEntity(person);
 
         var ticks = 0;
-        while (ticks < 150)
+        while (!cancelationToken.IsCancellationRequested
+            && ticks < 150)
         {
             _time.Tick();
             ticks++;

@@ -1,3 +1,4 @@
+using Alma.Kernel.Debugger;
 using Alma.Kernel.Meta;
 
 namespace Alma.Kernel;
@@ -9,9 +10,11 @@ internal static class Program
     {
         ApplicationConfiguration.Initialize();
 
-        //TODO: Launch simulation on separate Thread
-        //(new Simulation()).Start();
+        var sim = new Simulation();
+        sim.Start();
 
         Application.Run(new MainForm());
+
+        sim.Stop();
     }
 }
