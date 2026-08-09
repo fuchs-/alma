@@ -7,11 +7,20 @@ namespace Alma.Kernel.Meta;
 internal class Simulation
 {
     private readonly RNG _rng = new();
-
     private readonly Space _space = new();
     private readonly Time _time = new();
 
     private readonly List<Person> _people = new();
+    public List<Person> People => _people;
+
+    public Simulation()
+    {
+        var generator = new PersonGenerator();
+        var person = generator.GeneratePerson();
+
+        _people.Add(person);
+        _time.AddEntity(person);
+    }
 
     private Thread? _thread;
     private CancellationTokenSource? _cancellationTokenSource;
@@ -27,11 +36,6 @@ internal class Simulation
 
     public void Run(CancellationToken cancelationToken)
     {
-        var generator = new PersonGenerator();
-        var person = generator.GeneratePerson();
-
-        _time.AddEntity(person);
-
         var ticks = 0;
         while (!cancelationToken.IsCancellationRequested
             && ticks < 150)
@@ -39,8 +43,7 @@ internal class Simulation
             _time.Tick();
             ticks++;
 
-            Console.WriteLine($"{person}\ntension: {person.Needs.Tension.CurrentValue}%\n");
-
+            //Console.WriteLine($"{person}\ntension: {person.Needs.Tension.CurrentValue}%\n");
             Thread.Sleep(1000);
         }
     }

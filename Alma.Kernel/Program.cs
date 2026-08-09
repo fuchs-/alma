@@ -1,4 +1,4 @@
-using Alma.Kernel.Debugger;
+using Alma.Kernel.Debugger.Forms;
 using Alma.Kernel.Meta;
 
 namespace Alma.Kernel;
@@ -13,7 +13,7 @@ internal static class Program
         var sim = new Simulation();
         sim.Start();
 
-        Application.Run(new MainForm());
+        Application.Run(new DebugForm(sim));
 
         sim.Stop();
     }
