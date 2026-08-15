@@ -1,19 +1,24 @@
 using Alma.Kernel.Debugger.Framework;
 using Alma.Kernel.Meta;
-using Alma.Kernel.People;
 
 namespace Alma.Kernel.Debugger.Forms;
 
 internal partial class DebugForm : ADForm
 {
-    private readonly Simulation _simulation;
-
-    public DebugForm(Simulation simulation)
-        : base()
+    private async void DebugForm_Load(object sender, EventArgs e)
     {
-        _simulation = simulation;
+        var simulation = new Simulation();
+        var ticks = 0;
 
-        _personViewer.Person = _simulation.People[0];
-        _personViewer.RefreshUI();
+        while (ticks < 300)
+        {
+            simulation.Tick();
+            ticks++;
+
+            await Task.Delay(1000);
+        }
+
+        //_personViewer.Person = _simulation.People[0];
+        //_personViewer.RefreshUI();
     }
 }

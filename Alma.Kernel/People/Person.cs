@@ -42,8 +42,6 @@ internal class Person : ITemporalEntity
         CurrentActivity.Tick(rng);
         if (CurrentActivity.Finished)
             CurrentActivity = null;
-
-        Console.WriteLine($"{this} is {CurrentActivity?.Name ?? "Doing nothing"}");
     }
 
     private void Decide(RNG rng)

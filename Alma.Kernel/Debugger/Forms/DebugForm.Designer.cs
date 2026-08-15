@@ -8,10 +8,17 @@ partial class DebugForm
 
     protected override void BuildView()
     {
-        ClientSize = new Size(800, 450);
-        Text = "Alma - Debugger";
+        SetupForm();
 
         _personViewer = new PersonViewer();
         Controls.Add(_personViewer);
+    }
+
+    private void SetupForm()
+    {
+        ClientSize = new Size(800, 450);
+        Text = "Alma - Debugger";
+
+        Load += DebugForm_Load;
     }
 }
