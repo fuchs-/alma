@@ -19,6 +19,6 @@ partial class DebugForm
         ClientSize = new Size(800, 450);
         Text = "Alma - Debugger";
 
-        Load += DebugForm_Load;
+        Shown += DebugForm_Shown;
     }
 }
