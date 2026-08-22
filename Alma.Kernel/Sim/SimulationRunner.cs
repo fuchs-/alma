@@ -1,14 +1,14 @@
-using Alma.Kernel.Meta.WorkScheduling;
+using Alma.Kernel.Sim.WorkScheduling;
 
-namespace Alma.Kernel.Meta;
+namespace Alma.Kernel.Sim;
 
-internal class SimulationRunner
+internal class SimulationRunner(Simulation sim)
 {
+    private readonly Simulation _simulation = sim;
+
     public async Task StartAsync()
     {
-        var simulation = new Simulation();
-
-        simulation.BeginTick();
+        _simulation.BeginTick();
         WorkResult result = WorkResult.NotDone;
 
         while (true)
@@ -16,14 +16,14 @@ internal class SimulationRunner
             if (result == WorkResult.NotDone)
             {
                 await Task.Delay(10);
-                result = simulation.DoWork();
+                result = _simulation.DoWork();
             }
             else
             {
                 //TODO: delay till next second
                 await Task.Delay(1000);
 
-                simulation.BeginTick();
+                _simulation.BeginTick();
                 result = WorkResult.NotDone;
             }
         }

@@ -1,8 +1,8 @@
-using Alma.Kernel.Meta.WorkScheduling;
+using Alma.Kernel.Sim.WorkScheduling;
 using Alma.Kernel.People;
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.Meta;
+namespace Alma.Kernel.Sim;
 
 internal class Simulation
 {

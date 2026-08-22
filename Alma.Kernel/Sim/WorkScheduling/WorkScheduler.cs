@@ -1,4 +1,4 @@
-namespace Alma.Kernel.Meta.WorkScheduling;
+namespace Alma.Kernel.Sim.WorkScheduling;
 
 internal sealed class WorkScheduler
 {
