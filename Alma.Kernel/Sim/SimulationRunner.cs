@@ -20,6 +20,7 @@ internal class SimulationRunner(Simulation sim)
             }
             else
             {
+                _simulation.EndTick();
                 //TODO: delay till next second
                 await Task.Delay(1000);
 

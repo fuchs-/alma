@@ -2,22 +2,30 @@ namespace Alma.Kernel.Sim.WorkScheduling;
 
 internal sealed class WorkScheduler
 {
-    private readonly List<IScheduledWorker> _allScheduled = [];
-    private readonly Queue<IScheduledWorker> _queue = [];
+    private readonly Queue<IScheduledWorker> _workingQ = [];
+    private readonly Queue<IScheduledWorker> _doneQ = [];
 
-    public void Schedule(IScheduledWorker schedulable) => _allScheduled.Add(schedulable);
+    public void Schedule(IScheduledWorker schedulable) => _doneQ.Enqueue(schedulable);
 
-    public void BeginWork() => _allScheduled.ForEach(s => _queue.Enqueue(s));
+    public void BeginWork()
+    {
+        while (_doneQ.Count > 0)
+            _workingQ.Enqueue(_doneQ.Dequeue());
+    }
 
     public WorkResult DoWork()
     {
-        IScheduledWorker worker = _queue.Dequeue();
+        if (!_workingQ.TryDequeue(out var worker))
+            return WorkResult.Done;
+
         WorkResult result = worker.DoWork();
 
         if (result == WorkResult.NotDone)
-            _queue.Enqueue(worker);
+            _workingQ.Enqueue(worker);
+        else
+            _doneQ.Enqueue(worker);
 
-        return _queue.Count > 0
+        return _workingQ.Count > 0
             ? WorkResult.NotDone
             : WorkResult.Done;
     }

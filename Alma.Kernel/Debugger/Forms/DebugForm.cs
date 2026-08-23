@@ -1,18 +1,23 @@
 using Alma.Kernel.Debugger.Framework;
-using Alma.Kernel.Sim;
+using Alma.Kernel.Observability;
 
 namespace Alma.Kernel.Debugger.Forms;
 
-internal partial class DebugForm : ADForm
+internal partial class DebugForm(
+    ISimulation simulation,
+    Action runSim
+    ) : ADForm()
 {
-    private async void DebugForm_Shown(object sender, EventArgs e)
+    private readonly ISimulation _simulation = simulation;
+    private readonly Action _runSimulation = runSim;
+
+    private void DebugForm_Shown(object sender, EventArgs e)
     {
-        var simulation = new Simulation();
+        _personViewer.Person = _simulation.GetAllPeople()[0];
 
-        var runner = new SimulationRunner(simulation);
-        await runner.StartAsync();
+        _simulation.TickEnded +=
+            (_, _) => RefreshUI();
 
-        //_personViewer.Person = simulation.People[0];
-        //_personViewer.RefreshUI();
+        _runSimulation();
     }
 }

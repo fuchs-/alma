@@ -1,12 +1,11 @@
 using Alma.Kernel.Activities;
 using Alma.Kernel.Items;
-using Alma.Kernel.Meta;
 using Alma.Kernel.Utils;
 using Alma.Kernel.World;
 
 namespace Alma.Kernel.People;
 
-internal class Person : ITemporalEntity
+internal partial class Person
 {
     #region Characteristics
 
@@ -16,7 +15,7 @@ internal class Person : ITemporalEntity
 
     #region State
 
-    public Needs Needs { get; } = new Needs();
+    public Needs Needs { get; } = new();
     public Activity? CurrentActivity { get; private set; }
 
     public Place? Location { get; private set; }
