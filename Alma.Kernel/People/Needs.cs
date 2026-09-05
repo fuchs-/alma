@@ -6,9 +6,8 @@ namespace Alma.Kernel.People;
 internal partial class Needs : IEnumerable<Need>
 {
     public Need Tension { get; } = new Need(50);
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     public IEnumerator<Need> GetEnumerator() { yield return Tension; }
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
     public void Tick(RNG rng)
     {
