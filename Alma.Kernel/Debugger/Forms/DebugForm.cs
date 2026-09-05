@@ -3,21 +3,16 @@ using Alma.Kernel.Observability;
 
 namespace Alma.Kernel.Debugger.Forms;
 
-internal partial class DebugForm(
-    ISimulation simulation,
-    Action runSim
-    ) : ADForm()
+internal partial class DebugForm(DebuggerSimulationContext context)
+    : ADForm()
 {
-    private readonly ISimulation _simulation = simulation;
-    private readonly Action _runSimulation = runSim;
+    private readonly DebuggerSimulationContext _context = context;
 
     private void DebugForm_Shown(object sender, EventArgs e)
     {
-        _personViewer.Person = _simulation.GetAllPeople()[0];
+        _personViewer.Person = _context.People[0];
+        _context.TickEnded += () => RefreshUI();
 
-        _simulation.TickEnded +=
-            (_, _) => RefreshUI();
-
-        _runSimulation();
+        _context.StartSimulation();
     }
 }

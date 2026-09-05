@@ -13,6 +13,10 @@ internal static class Program
         var simulation = new Simulation();
         var runner = new SimulationRunner(simulation);
 
-        Application.Run(new DebugForm(simulation, () => runner.StartAsync()));
+        var context = simulation.GetDebugContext(
+            () => runner.StartAsync()
+            );
+
+        Application.Run(new DebugForm(context));
     }
 }

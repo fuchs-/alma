@@ -18,14 +18,15 @@ internal partial class Simulation
 
         _people.Add(person);
 
-        _scheduler.Schedule(new PhysiologySystem(_rng, _people));
+        _scheduler.Schedule(new PhysiologySystem(GetContext()));
     }
 
+    public event Action? TickEnded;
 
     public void BeginTick() => _scheduler.BeginWork();
 
     public void EndTick()
-        => TickEnded?.Invoke(this, EventArgs.Empty);
+        => TickEnded?.Invoke();
 
     public WorkResult DoWork() => _scheduler.DoWork();
 }
