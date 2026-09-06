@@ -1,4 +1,4 @@
-using Alma.Kernel.People;
+using Alma.Kernel.Observability;
 using Alma.Kernel.Sim;
 using Alma.Kernel.Sim.WorkScheduling;
 using Alma.Kernel.Utils;
@@ -13,7 +13,7 @@ internal abstract class SimulationSystem(
     protected SimulationContext _simContext = simContext;
 
     protected RNG Rng => _simContext.Rng;
-    protected IReadOnlyList<Person> People => _simContext.People;
+    protected IReadOnlyList<IPerson> People => _simContext.People;
 
     public abstract WorkResult DoWork();
 }

@@ -1,10 +1,10 @@
 using Alma.Kernel.Items;
-using Alma.Kernel.People;
+using Alma.Kernel.Observability;
 using Alma.Kernel.Utils;
 
 namespace Alma.Kernel.Activities;
 
-internal class LookForItemActivity(Person actor, string itemName)
+internal class LookForItemActivity(IPerson actor, string itemName)
     : Activity(actor, "Looking for " + itemName, 2)
 {
     private readonly string _itemName = itemName;

@@ -1,15 +1,15 @@
-using Alma.Kernel.People;
+using Alma.Kernel.Observability;
 using Alma.Kernel.Utils;
 
 namespace Alma.Kernel.Activities;
 
 internal class Activity(
-    Person actor,
+    IPerson actor,
     string name,
     int duration
     )
 {
-    protected Person _actor = actor;
+    protected IPerson _actor = actor;
     public string Name { get; } = name;
     public int Duration { get; } = duration;
     public int TicksLeft { get; private set; } = duration;

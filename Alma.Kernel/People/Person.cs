@@ -15,7 +15,7 @@ internal partial class Person
 
     #region State
 
-    public Needs Needs { get; } = new();
+    private Needs _needs = new();
     public Activity? CurrentActivity { get; private set; }
 
     public Place? Location { get; private set; }
@@ -24,7 +24,7 @@ internal partial class Person
         Location = place;
     }
 
-    public List<Item> Pockets { get; } = [new Item("Bloom")];
+    public List<Item> _pockets { get; } = [new Item("Bloom")];
 
     #endregion
 
@@ -33,10 +33,10 @@ internal partial class Person
         if (CurrentActivity is not null)
             return;
 
-        var need = Needs.FirstOrDefault(n => n.IsUrgent);
+        var need = _needs.FirstOrDefault(n => n.IsUrgent);
         if (need is null) return;
 
-        if (Pockets.Any(i => i.Name == "Bloom"))
+        if (_pockets.Any(i => i.Name == "Bloom"))
         {
             CurrentActivity = new RelaxActivity(this);
         }
