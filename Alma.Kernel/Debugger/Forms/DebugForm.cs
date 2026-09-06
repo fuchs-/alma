@@ -1,12 +1,12 @@
 using Alma.Kernel.Debugger.Framework;
-using Alma.Kernel.Observability;
+using Alma.Kernel.Observability.Debug;
 
 namespace Alma.Kernel.Debugger.Forms;
 
-internal partial class DebugForm(DebuggerSimulationContext context)
+internal partial class DebugForm(DebugSimulationContext context)
     : ADForm()
 {
-    private readonly DebuggerSimulationContext _context = context;
+    private readonly DebugSimulationContext _context = context;
 
     private void DebugForm_Shown(object sender, EventArgs e)
     {

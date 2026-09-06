@@ -18,7 +18,13 @@ internal partial class Simulation
 
         _people.Add(person);
 
-        _scheduler.Schedule(new PhysiologySystem(GetContext()));
+        var context = GetContext();
+
+        _scheduler.Schedule(
+            new PhysiologySystem(context),
+            new PsychologySystem(context),
+            new ActorsSystem(context)
+            );
     }
 
     public event Action? TickEnded;

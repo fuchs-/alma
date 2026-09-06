@@ -1,6 +1,6 @@
 namespace Alma.Kernel.Observability;
 
-public interface INeeds
+internal interface INeeds
 {
-    int GetTension();
+
 }

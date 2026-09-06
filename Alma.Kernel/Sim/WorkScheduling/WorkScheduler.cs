@@ -5,7 +5,11 @@ internal sealed class WorkScheduler
     private readonly Queue<IScheduledWorker> _workingQ = [];
     private readonly Queue<IScheduledWorker> _doneQ = [];
 
-    public void Schedule(IScheduledWorker schedulable) => _doneQ.Enqueue(schedulable);
+    public void Schedule(params IScheduledWorker[] workers)
+    {
+        foreach (var worker in workers)
+            _doneQ.Enqueue(worker);
+    }
 
     public void BeginWork()
     {

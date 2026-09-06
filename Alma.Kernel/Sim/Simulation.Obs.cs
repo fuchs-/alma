@@ -1,4 +1,4 @@
-using Alma.Kernel.Observability;
+using Alma.Kernel.Observability.Debug;
 
 namespace Alma.Kernel.Sim;
 
@@ -13,9 +13,9 @@ partial class Simulation
         };
     }
 
-    public DebuggerSimulationContext GetDebugContext(Action startSimulation)
+    public DebugSimulationContext GetDebugContext(Action startSimulation)
     {
-        var ret = new DebuggerSimulationContext()
+        var ret = new DebugSimulationContext()
         {
             StartSimulation = startSimulation,
             People = _people,

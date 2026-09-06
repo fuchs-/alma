@@ -8,6 +8,7 @@ partial class PersonViewer
     private Label _titleLabel;
     private Label _nameLabel;
     private Label _tensionLabel;
+    private Label _activityLabel;
 
     protected override void BuildView()
     {
@@ -35,10 +36,18 @@ partial class PersonViewer
             AutoSize = true,
             Text = "Tension",
         };
+        _activityLabel = new Label
+        {
+            AutoSize = true,
+            Text = "Activity",
+        };
 
-        _layout.Controls.Add(_titleLabel);
-        _layout.Controls.Add(_nameLabel);
-        _layout.Controls.Add(_tensionLabel);
+        _layout.Controls.AddRange([
+            _titleLabel,
+            _nameLabel,
+            _tensionLabel,
+            _activityLabel,
+            ]);
 
         Controls.Add(_layout);
     }
