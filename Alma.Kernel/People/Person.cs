@@ -28,23 +28,11 @@ internal partial class Person
 
     #endregion
 
-    public void Tick(RNG rng)
+    public void Think(RNG rng)
     {
-        Needs.Tick(rng);
-
-        if (CurrentActivity is null)
-        {
-            Decide(rng);
+        if (CurrentActivity is not null)
             return;
-        }
 
-        CurrentActivity.Tick(rng);
-        if (CurrentActivity.Finished)
-            CurrentActivity = null;
-    }
-
-    private void Decide(RNG rng)
-    {
         var need = Needs.FirstOrDefault(n => n.IsUrgent);
         if (need is null) return;
 
@@ -61,6 +49,17 @@ internal partial class Person
             CurrentActivity = null;
 
         CurrentActivity?.Start(rng);
+    }
+
+    public void Act(RNG rng)
+    {
+        if (CurrentActivity is null)
+            return;
+
+        CurrentActivity.Tick(rng);
+
+        if (CurrentActivity.Finished)
+            CurrentActivity = null;
     }
 
     public override string ToString()
