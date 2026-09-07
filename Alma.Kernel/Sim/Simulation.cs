@@ -7,6 +7,8 @@ namespace Alma.Kernel.Sim;
 
 internal partial class Simulation
 {
+    private static readonly int POPULATION = 5;
+
     private readonly RNG _rng = new();
     private readonly WorkScheduler _scheduler = new();
     private readonly List<Person> _people = [];
@@ -14,9 +16,13 @@ internal partial class Simulation
     public Simulation()
     {
         var generator = new PersonGenerator();
-        var person = generator.GeneratePerson();
 
-        _people.Add(person);
+        for (var i = 0; i < POPULATION; i++)
+        {
+            _people.Add(
+                generator.GeneratePerson()
+                );
+        }
 
         var context = GetContext();
 

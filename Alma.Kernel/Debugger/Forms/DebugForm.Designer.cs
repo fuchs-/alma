@@ -4,14 +4,16 @@ namespace Alma.Kernel.Debugger.Forms;
 
 partial class DebugForm
 {
-    private PersonViewer _personViewer;
+    private PeopleDataGridView _peopleDgv;
 
     protected override void BuildView()
     {
         SetupForm();
 
-        _personViewer = new PersonViewer();
-        Controls.Add(_personViewer);
+        _peopleDgv = new PeopleDataGridView();
+        _peopleDgv.Dock = DockStyle.Fill;
+
+        Controls.Add(_peopleDgv);
     }
 
     private void SetupForm()

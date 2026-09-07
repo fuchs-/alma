@@ -6,13 +6,11 @@ internal class ADForm : Form
 
     protected virtual void BuildView() { }
 
+
+
     protected virtual void RefreshUI(bool recursive = true)
     {
-        if (!recursive) return;
-        foreach (var control in Controls)
-        {
-            if (control is ADUserControl adControl)
-                adControl.RefreshUI(recursive);
-        }
+        if (recursive)
+            ADHelper.RefreshUIRecursive(Controls);
     }
 }

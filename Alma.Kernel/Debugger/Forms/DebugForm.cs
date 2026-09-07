@@ -1,3 +1,4 @@
+using Alma.Kernel.Debugger.Controls;
 using Alma.Kernel.Debugger.Framework;
 using Alma.Kernel.Observability.Debug;
 
@@ -10,7 +11,8 @@ internal partial class DebugForm(DebugSimulationContext context)
 
     private void DebugForm_Shown(object sender, EventArgs e)
     {
-        _personViewer.Person = _context.People[0];
+        _peopleDgv.SetData(_context.People);
+
         _context.TickEnded += () => RefreshUI();
 
         _context.StartSimulation();
