@@ -1,6 +1,6 @@
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.People;
+namespace Alma.Kernel.World.People;
 
 internal class Need(int initialValue = 0, int threshold = 85)
 {

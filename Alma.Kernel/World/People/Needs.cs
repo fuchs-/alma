@@ -1,7 +1,7 @@
 using System.Collections;
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.People;
+namespace Alma.Kernel.World.People;
 
 internal partial class Needs : IEnumerable<Need>
 {

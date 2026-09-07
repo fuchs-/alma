@@ -1,7 +1,7 @@
-using Alma.Kernel.People;
+using Alma.Kernel.World.People;
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.Activities;
+namespace Alma.Kernel.World.Activities;
 
 internal class RelaxActivity(Person performer)
     : Activity(performer, "Relaxing", 5)

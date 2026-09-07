@@ -1,9 +1,8 @@
-using Alma.Kernel.Activities;
-using Alma.Kernel.Items;
+using Alma.Kernel.World.Activities;
+using Alma.Kernel.World.Items;
 using Alma.Kernel.Utils;
-using Alma.Kernel.World;
 
-namespace Alma.Kernel.People;
+namespace Alma.Kernel.World.People;
 
 internal partial class Person
 {

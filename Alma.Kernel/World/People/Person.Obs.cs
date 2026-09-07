@@ -1,7 +1,7 @@
-using Alma.Kernel.Items;
+using Alma.Kernel.World.Items;
 using Alma.Kernel.Observability;
 
-namespace Alma.Kernel.People;
+namespace Alma.Kernel.World.People;
 
 partial class Person : IPerson
 {

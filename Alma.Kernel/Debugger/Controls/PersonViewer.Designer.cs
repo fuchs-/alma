@@ -1,4 +1,4 @@
-using Alma.Kernel.People;
+using Alma.Kernel.World.People;
 
 namespace Alma.Kernel.Debugger.Controls;
 

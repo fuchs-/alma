@@ -1,4 +1,4 @@
-using Alma.Kernel.Items;
+using Alma.Kernel.World.Items;
 using Alma.Kernel.Utils;
 
 namespace Alma.Kernel.Observability;

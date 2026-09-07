@@ -1,5 +1,5 @@
 using Alma.Kernel.Sim.WorkScheduling;
-using Alma.Kernel.People;
+using Alma.Kernel.World.People;
 using Alma.Kernel.Utils;
 using Alma.Kernel.Systems;
 

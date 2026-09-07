@@ -1,4 +1,4 @@
-namespace Alma.Kernel.Items;
+namespace Alma.Kernel.World.Items;
 
 public class Item(string name)
 {

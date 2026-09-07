@@ -1,8 +1,8 @@
-using Alma.Kernel.Items;
+using Alma.Kernel.World.Items;
 using Alma.Kernel.Observability;
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.Activities;
+namespace Alma.Kernel.World.Activities;
 
 internal class LookForItemActivity(IPerson actor, string itemName)
     : Activity(actor, "Looking for " + itemName, 2)

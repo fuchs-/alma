@@ -1,7 +1,7 @@
 using Alma.Kernel.Observability;
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.Activities;
+namespace Alma.Kernel.World.Activities;
 
 internal class Activity(
     IPerson actor,

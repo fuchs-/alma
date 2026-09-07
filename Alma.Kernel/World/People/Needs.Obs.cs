@@ -1,6 +1,6 @@
 using Alma.Kernel.Observability;
 
-namespace Alma.Kernel.People;
+namespace Alma.Kernel.World.People;
 
 partial class Needs : INeeds
 {
