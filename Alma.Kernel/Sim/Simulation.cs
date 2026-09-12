@@ -2,6 +2,7 @@ using Alma.Kernel.Sim.WorkScheduling;
 using Alma.Kernel.World.People;
 using Alma.Kernel.Utils;
 using Alma.Kernel.Systems;
+using Alma.Kernel.World;
 
 namespace Alma.Kernel.Sim;
 
@@ -12,17 +13,13 @@ internal partial class Simulation
     private readonly RNG _rng = new();
     private readonly WorkScheduler _scheduler = new();
     private readonly List<Person> _people = [];
+    private readonly City _city = new();
 
     public Simulation()
     {
-        var generator = new PersonGenerator();
+        GeneratePopulation();
 
-        for (var i = 0; i < POPULATION; i++)
-        {
-            _people.Add(
-                generator.GeneratePerson()
-                );
-        }
+        _city.Generate(_people);
 
         var context = GetContext();
 
@@ -33,7 +30,17 @@ internal partial class Simulation
             );
     }
 
-    public event Action? TickEnded;
+    private void GeneratePopulation()
+    {
+        var generator = new PersonGenerator(_rng);
+
+        for (var i = 0; i < POPULATION; i++)
+        {
+            _people.Add(
+                generator.GeneratePerson()
+                );
+        }
+    }
 
     public void BeginTick() => _scheduler.BeginWork();
 
@@ -41,4 +48,6 @@ internal partial class Simulation
         => TickEnded?.Invoke();
 
     public WorkResult DoWork() => _scheduler.DoWork();
+
+    public event Action? TickEnded;
 }

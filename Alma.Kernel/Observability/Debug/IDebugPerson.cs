@@ -1,8 +1,7 @@
 namespace Alma.Kernel.Observability.Debug;
 
-public interface IDebugPerson
+public interface IDebugPerson : IPersonBase
 {
-    string GetName();
     int GetAge();
 
     IDebugNeeds GetNeeds();

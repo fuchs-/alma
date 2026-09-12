@@ -2,9 +2,9 @@ using Alma.Kernel.World.People;
 
 namespace Alma.Kernel.Utils;
 
-internal class PersonGenerator
+internal class PersonGenerator(RNG rng)
 {
-    private readonly RNG _rng = new();
+    private readonly RNG _rng = rng;
 
     private readonly string[] _firstNames = File.ReadAllLines("Assets/first_names.lst");
     private readonly string[] _lastNames = File.ReadAllLines("Assets/last_names.lst");
