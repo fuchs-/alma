@@ -60,3 +60,5 @@ nunit-*.xml
 .editorconfig
 .vscode
 .VSCodeCounter
+
+!Alma.Kernel/Observability/Debug/
