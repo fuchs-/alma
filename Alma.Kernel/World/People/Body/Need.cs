@@ -1,11 +1,12 @@
 using Alma.Kernel.Utils;
 
-namespace Alma.Kernel.World.People;
+namespace Alma.Kernel.World.People.Body;
 
-internal class Need(int initialValue = 0, int threshold = 85)
+internal class Need(string name, int initialValue = 0, int threshold = 85)
 {
     private readonly int _threshold = threshold;
 
+    public string Name { get; } = name;
     public int CurrentValue { get; private set; } = initialValue;
     public bool IsUrgent => CurrentValue > _threshold;
 

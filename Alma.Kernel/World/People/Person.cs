@@ -1,6 +1,7 @@
+using Alma.Kernel.Utils;
 using Alma.Kernel.World.Activities;
 using Alma.Kernel.World.Items;
-using Alma.Kernel.Utils;
+using Alma.Kernel.World.People.Body;
 
 namespace Alma.Kernel.World.People;
 
@@ -14,7 +15,7 @@ internal partial class Person
 
     #region State
 
-    private Needs _needs = new();
+    private readonly Needs _needs = new();
     public Activity? CurrentActivity { get; private set; }
 
     public Place? Location { get; private set; }
