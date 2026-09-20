@@ -10,4 +10,6 @@ internal interface IPerson : IPersonBase
 
     void Think(RNG rng);
     void Act(RNG rng);
+
+    void OnPersonEntered(IPerson person);
 }

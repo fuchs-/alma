@@ -1,32 +1,16 @@
-using Alma.Kernel.World.People;
+using Alma.Kernel.Observability;
 
 namespace Alma.Kernel.World;
 
-internal class Place
+internal partial class Place
 {
     public required string Name { get; init; }
     public string Description { get; init; } = string.Empty;
-    private HashSet<Person> _people = new();
+    private HashSet<IPerson> _occupants = new();
 
-    public void _AddPerson(Person person)
+    public void _InitializeOccupant(IPerson person)
     {
-        if (_people.Contains(person))
-            throw new ArgumentException(
-                $"Trying to add Person {person} to Place {this}, but they're already there",
-                nameof(person)
-                );
-
-        _people.Add(person);
-    }
-
-    public void _RemovePerson(Person person)
-    {
-        if (!_people.Contains(person))
-            throw new ArgumentException(
-                $"Trying to remove Person {person} from Place {this}, but they're not there",
-                nameof(person)
-                );
-        _people.Remove(person);
+        _occupants.Add(person);
     }
 
     public override string ToString()

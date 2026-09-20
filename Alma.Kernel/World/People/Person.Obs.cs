@@ -8,4 +8,9 @@ partial class Person : IPerson
     public INeeds Needs => _needs;
 
     public List<Item> Pockets => _pockets;
+
+    public void OnPersonEntered(IPerson person)
+    {
+        // TODO: create LocationInformation
+    }
 }

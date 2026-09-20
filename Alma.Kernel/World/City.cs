@@ -22,7 +22,7 @@ internal class City
             };
             _places.Add(house);
             person._SetLocation(house);
-            house._AddPerson(person);
+            house._InitializeOccupant(person);
         }
     }
 }
