@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alma.Kernel", "Alma.Kernel\Alma.Kernel.csproj", "{916F30A2-C475-411B-AC99-BA85BCAF6553}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alma.Stride", "Alma.Stride\Alma.Stride\Alma.Stride.csproj", "{06B0D597-148D-4859-B511-C0A31A58EECF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alma.Stride.Windows", "Alma.Stride\Alma.Stride.Windows\Alma.Stride.Windows.csproj", "{31B990B5-C5AE-438C-A0A3-6FA87CC72A4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{916F30A2-C475-411B-AC99-BA85BCAF6553}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{916F30A2-C475-411B-AC99-BA85BCAF6553}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{916F30A2-C475-411B-AC99-BA85BCAF6553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B0D597-148D-4859-B511-C0A31A58EECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B0D597-148D-4859-B511-C0A31A58EECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B0D597-148D-4859-B511-C0A31A58EECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B0D597-148D-4859-B511-C0A31A58EECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B990B5-C5AE-438C-A0A3-6FA87CC72A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B990B5-C5AE-438C-A0A3-6FA87CC72A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B990B5-C5AE-438C-A0A3-6FA87CC72A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B990B5-C5AE-438C-A0A3-6FA87CC72A4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
