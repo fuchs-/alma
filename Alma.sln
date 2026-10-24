@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alma.Kernel", "Alma.Kernel\Alma.Kernel.csproj", "{916F30A2-C475-411B-AC99-BA85BCAF6553}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alma.Debugger", "Alma.Debugger\Alma.Debugger.csproj", "{B7361D89-281D-43AF-89CE-B46C60E4D7DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{916F30A2-C475-411B-AC99-BA85BCAF6553}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{916F30A2-C475-411B-AC99-BA85BCAF6553}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{916F30A2-C475-411B-AC99-BA85BCAF6553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7361D89-281D-43AF-89CE-B46C60E4D7DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7361D89-281D-43AF-89CE-B46C60E4D7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7361D89-281D-43AF-89CE-B46C60E4D7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7361D89-281D-43AF-89CE-B46C60E4D7DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
