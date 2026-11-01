@@ -13,11 +13,10 @@ partial class Simulation
         };
     }
 
-    public DebugSimulationContext GetDebugContext(Action startSimulation)
+    public DebugSimulationContext GetDebugContext()
     {
         var ret = new DebugSimulationContext()
         {
-            StartSimulation = startSimulation,
             People = _people,
         };
         TickEnded += ret.EndTick;

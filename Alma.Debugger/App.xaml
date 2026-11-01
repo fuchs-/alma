@@ -2,8 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Alma.Debugger"
-             StartupUri="MainWindow.xaml">
+             StartupUri="/Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#141519" />
+        <SolidColorBrush x:Key="SurfaceBrush" Color="#1C1E24" />
+        
+        <SolidColorBrush x:Key="BorderBrush" Color="#30323A" />
+        
+        <SolidColorBrush x:Key="ForegroundBrush" Color="#E5E7EB" />
+        <SolidColorBrush x:Key="SecondaryForegroundBrush" Color="#9296A2" />
+        
+        <!-- Arasaka Red -->
+        <SolidColorBrush x:Key="AccentBrush" Color="#E53945" />
     </Application.Resources>
 </Application>

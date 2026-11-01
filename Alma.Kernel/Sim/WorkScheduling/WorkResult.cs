@@ -1,6 +1,6 @@
 namespace Alma.Kernel.Sim.WorkScheduling;
 
-internal enum WorkResult
+public enum WorkResult
 {
     Done,
     NotDone,
