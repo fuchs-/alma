@@ -13,16 +13,6 @@
         
         Loaded="MainWindow_OnLoaded">
     <Grid>
-        <DataGrid ItemsSource="{Binding People}">
-            <DataGrid.Columns>
-                <DataGridTextColumn 
-                    Header="Name"
-                    Binding="{Binding Name}"/>
-                <DataGridTextColumn 
-                    Header="Age"
-                    Binding="{Binding Age}"/>
-                
-            </DataGrid.Columns>
-        </DataGrid>
+        <DataGrid ItemsSource="{Binding People}" />
     </Grid>
 </Window>
