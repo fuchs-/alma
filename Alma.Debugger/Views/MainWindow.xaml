@@ -13,6 +13,36 @@
         
         Loaded="MainWindow_OnLoaded">
     <Grid>
-        <DataGrid ItemsSource="{Binding People}" />
+        <DataGrid ItemsSource="{Binding People}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding Name}" 
+                                    Width="130"
+                                    ElementStyle="{StaticResource DataGridFirstColumn}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader"
+                               BasedOn="{StaticResource HeaderStyle}">
+                            <Setter Property="Padding"
+                                    Value="10,0,0,0"></Setter>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                    Header="Age"
+                    Binding="{Binding Age}"
+                    Width="50"
+                    ElementStyle="{StaticResource DataGridCellText}"/>
+                <DataGridTextColumn
+                    Header="Tension"
+                    Binding="{Binding Tension}"
+                    Width="70"
+                    ElementStyle="{StaticResource DataGridCellText}"/>
+                <DataGridTextColumn
+                    Header="Activity"
+                    Binding="{Binding Activity}"
+                    Width="180"
+                    ElementStyle="{StaticResource DataGridCellText}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
